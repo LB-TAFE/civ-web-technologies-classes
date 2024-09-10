@@ -1,9 +1,18 @@
 // Generate 10 random numbers between 1 and 100
 // Hint: be carful not to start at 0
+let numbers = [];
+
+for (let index = 0; index < 10; index++) {
+    numbers.push(Math.random() * 100);
+    console.log(numbers);
+}
 
 // Calculate the sum of the numbers
-
+let sum = numbers.reduce((tally, current) => tally + current, 0);
+console.log(sum);
 // Calculate the average of the numbers
+let average = sum / numbers.length;
+console.log(average);
 
 // Calculate the square root of the average
 // Hint: use the inbuild Math object method()
