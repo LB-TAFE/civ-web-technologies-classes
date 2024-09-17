@@ -1,50 +1,75 @@
 function isValidEmail(email) {
-  // Initialize a variable to store feedback
-  let feedback = "";
+    // Initialize a variable to store feedback
+    let feedback = "";
 
-  // Check for basic email format
-  // hint: email.match()
-  if (email.match(/^\S+@\S+\.\S+$/) === null) {
-    feedback = "Invalid email format.";
-  }
+    switch (email) {
+        case email.match(/^\S+@\S+\.\S+$/) === null:
+            feedback += "Invalid email format.";
+            break;
 
-  // Check for spaces in the email
-  // hint: use includes()
-  if (email.includes(" ")) {
-    feedback += " Remove spaces.";
-  }
+        case email.includes(" "):
+            feedback += " Remove spaces.";
+            break;
 
-  // Check for the "@" symbol
-  // hint: use includes()
-  if (!email.includes("@")) {
-    feedback += ' Add "@" symbol.';
-  }
+        case !email.includes("@"):
+            feedback += ' Add "@" symbol.';
+            break;
 
-  // Check for multiple "@" symbols
-  // hint: use split()
-  // hint: count the number of parts using .length
-  if (email.split("@").length > 2) {
-    feedback += ' Remove extra "@" symbols.';
-  }
+        case email.split("@").length > 2:
+            feedback += ' Remove extra "@" symbols.';
+            break;
 
-  // Check for "@." sequence
-  // hint: use includes()
-  if (email.includes("@.")) {
-    feedback += ' Add a valid domain after "@" symbol.';
-  }
+        case email.includes("@."):
+            feedback += ' Must contain a domain after the "@" symbol.';
+            break;
 
-  // Check for "@" at the start or end
-  // hint: use startsWith(), endsWith() & the or comparison opertor ||
-  if (email.startsWith("@") || email.endsWith("@")) {
-    feedback += ' Move "@" symbol to a valid position.';
-  }
+        case email.startsWith("@") || email.endsWith("@"):
+            feedback += ' Move "@" to a valid position.';
+            break;
 
-  // Determine the final validation result
-  if (feedback === "") {
-    return `Valid email: "${email}"`;
-  } else {
-    return `Invalid email: "${email}" - ${feedback.trim()}`;
-  }
+        default:
+            feedback = "No issues found.";
+            break;
+    }
+    return feedback;
+
+    // Check for spaces in the email
+    // hint: use includes()
+    if (email.includes(" ")) {
+        feedback += " Remove spaces.";
+    }
+
+    // Check for the "@" symbol
+    // hint: use includes()
+    if (!email.includes("@")) {
+        feedback += ' Add "@" symbol.';
+    }
+
+    // Check for multiple "@" symbols
+    // hint: use split()
+    // hint: count the number of parts using .length
+    if (email.split("@").length > 2) {
+        feedback += ' Remove extra "@" symbols.';
+    }
+
+    // Check for "@." sequence
+    // hint: use includes()
+    if (email.includes("@.")) {
+        feedback += ' Add a valid domain after "@" symbol.';
+    }
+
+    // Check for "@" at the start or end
+    // hint: use startsWith(), endsWith() & the or comparison opertor ||
+    if (email.startsWith("@") || email.endsWith("@")) {
+        feedback += ' Move "@" symbol to a valid position.';
+    }
+
+    // Determine the final validation result
+    if (feedback === "") {
+        return `Valid email: "${email}"`;
+    } else {
+        return `Invalid email: "${email}" - ${feedback.trim()}`;
+    }
 }
 
 // Test cases

@@ -1,0 +1,12 @@
+.gallery-container {
+    display: grid;
+    width: 90%;
+    grid-row-gap: 1%;
+}
+
+@media (min-width: 800px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+    }
+}
