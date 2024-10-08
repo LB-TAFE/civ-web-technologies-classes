@@ -1,5 +1,5 @@
 // Challenge 5 Starter
-const sidebar = document.querySelector('.sidebar');
+const sidebar = document.querySelector(".sidebar");
 
 function toggleSidebarContent() {
     sidebar.children[1].removeChild(sidebar.children[1].firstChild);
